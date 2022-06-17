@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+    
+<link rel="stylesheet" href="{% static 'css/blog.css' %}" />
+{% endblock %}
+
+
+{% block content %}
+<section class="home" id="home">
+
+    <div class="swiper home-slider">
+
+        <div class="swiper-wrapper">
+
+            {% for abc in  blogis  %}
+            <div class="swiper-slide">
+                <div class="box" style="background: url('{{ abc.img.url }}') no-repeat;">
+                    <div class="content">
+                        <h3>{{ abc.name }}</h3>
+                        <a href="#" class="btn">get started</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+    </div>
+    <!--blog section -->
+<section class="services" id="services">
+
+
+
+    <div class="boxx-container">
+        {% for po in  blogis2 %}
+        <div class="boxx">
+            <img src="{{ po.img.url }}" alt="" width="90%">
+            <h3>{{ po.name }}</h3>
+            <p>{{ po.about }}</p>
+            <a href="#" class="btn">Կարդալ ավելին</a>
+        </div>
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+</section>
+
+<section class="footer">
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/blog.js' %}"></script>
+{% endblock %}

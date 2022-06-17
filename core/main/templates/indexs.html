@@ -1,0 +1,396 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+ {% endblock %}
+
+{% block content %}
+<section class="home" id="home">
+    
+    
+    <div class="swiper home-slider">
+
+        <div class="swiper-wrapper">
+                {% for i in backs %}
+                <div class="swiper-slide">
+                    <div class="box second" style="background: url('{{ i.img.url }}') no-repeat;">
+                        <div class="content">
+                            <span>{{ i.name }}</span>
+                            <h3>{{ i.name2 }}</h3>
+                            <p>{{ i.about }}</p>
+                            <a href="{% url 'gr_detal' i.id %}" class="btn">get started</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                
+        </div>
+        
+        
+
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+<!-- category section starts  -->
+<section class="book-form" id="book-form">
+
+    <form action="">
+        <div  class="inputBox">
+            <span>where to?</span>
+            <input type="text" placeholder="place name" value="">
+        </div>
+        <div class="inputBox">
+            <span>when?</span>
+            <input type="date" value="">
+        </div>
+        <div class="inputBox">
+            <span>how many?</span>
+            <input type="number" placeholder="number of travelers" value="">
+        </div>
+        <input type="submit" value="find now" class="btn">
+    </form>
+
+</section>
+
+<section class="category">
+
+    <h1 class="heading">Արկածային տուրիզմի գաղափարներ</h1>
+  
+    <div class="box-container">
+       {% for j in arkac %}
+        <div class="box">
+            <img src="{{ j.img.url }}" alt="">
+            <h3>{{ j.name }}</h3>
+            <p>{{ j.about }}</p>
+            <a href="{% url 'index_detail' j.id %}" class="btn">կարդալ ավելին</a>
+        </div>
+        {% endfor %}
+
+
+    </div>
+    
+
+</section>
+
+<!-- category section ends -->
+
+<!-- about section starts  -->
+
+<section class="about" id="about">
+    {%  for ka in kayq %}
+    <div class="image">
+        <img src="{{ ka.img.url }}" alt="">
+    </div>
+
+    <div class="content">
+
+        <h3>{{ ka.name }}</h3>
+        <p>{{ ka.about }}</p>
+        
+        <a href="{% url 'aboutus' %}" class="btn">Կարդալ ավելին</a>
+    </div>
+    {% endfor %}
+
+</section>
+
+<!-- about section ends -->
+
+<!-- shop section starts  -->
+<section class="shop" id="shop">
+
+    <h1 class="heading">Առաջարկվող տուրիստական ապրանքներ</h1>
+
+    <div class="swiper product-slider">
+
+        <div class="swiper-wrapper">
+            {% for y in apranq %}
+            <div class="swiper-slide slide">
+                
+                <div class="image">
+                    <img src="{{ y.img.url }}" alt="">
+                    <div class="icons">
+                        <a href="#" class="fas fa-shopping-cart"></a>
+                        <a href="{% url 'apranq_detal' y.id %}" class="fas fa-eye"></a>
+                        <a href="#" class="fas fa-share"></a>
+                    </div>
+                </div>
+                
+                <div class="content">
+                    <h3>{{ y.name }}</h3>
+                    <div class="price">{{ y.gin }} </div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+    </div>
+
+</section>
+
+
+<!-- shop section ends -->
+
+<!-- packages section starts  -->
+
+
+<section class="blogs" id="blogs">
+
+    <h1 class="heading"> Թերթիր և ամրագրիր  </h1>
+
+    <div class="swiper blogs-slider">
+
+        <div class="swiper-wrapper">
+            {% for ii in hyuranocc %}
+
+            <div class="swiper-slide slide">
+                <img src="{{ ii.img.url }}" alt="">
+                <div class="icons">
+                    <a href="#"> <i class="fas fa-calendar"></i> Book now</a>
+                   
+                </div>
+                <h3>{{ ii.name }}</h3>
+                <p>{{ ii.about }}</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+            {% endfor %}
+
+        
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- packages section ends -->
+
+<!-- reviews section starts  -->
+
+<section class="reviews" id="reviews">
+
+    <h1 class="heading">Կարծիքներ</h1>
+
+    <div class="swiper review-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide slide">
+                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quidem laborum pariatur alias, culpa illum quaerat, aliquid laboriosam voluptatem nisi repellat obcaecati, adipisci esse ab delectus dolorum ut recusandae ipsam?</p>
+                <div class="user">
+                    <img src="images/pic-1.png" alt="">
+                    <div class="info">
+                        <h3>john deo</h3>
+                        <span>designer</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quidem laborum pariatur alias, culpa illum quaerat, aliquid laboriosam voluptatem nisi repellat obcaecati, adipisci esse ab delectus dolorum ut recusandae ipsam?</p>
+                <div class="user">
+                    <img src="images/pic-2.png" alt="">
+                    <div class="info">
+                        <h3>Ann</h3>
+                        <span>designer</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quidem laborum pariatur alias, culpa illum quaerat, aliquid laboriosam voluptatem nisi repellat obcaecati, adipisci esse ab delectus dolorum ut recusandae ipsam?</p>
+                <div class="user">
+                    <img src="images/pic-3.png" alt="">
+                    <div class="info">
+                        <h3>jack</h3>
+                        <span>designer</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quidem laborum pariatur alias, culpa illum quaerat, aliquid laboriosam voluptatem nisi repellat obcaecati, adipisci esse ab delectus dolorum ut recusandae ipsam?</p>
+                <div class="user">
+                    <img src="images/pic-4.png" alt="">
+                    <div class="info">
+                        <h3>john deo</h3>
+                        <span>designer</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quidem laborum pariatur alias, culpa illum quaerat, aliquid laboriosam voluptatem nisi repellat obcaecati, adipisci esse ab delectus dolorum ut recusandae ipsam?</p>
+                <div class="user">
+                    <img src="images/pic-5.png" alt="">
+                    <div class="info">
+                        <h3>john deo</h3>
+                        <span>designer</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quidem laborum pariatur alias, culpa illum quaerat, aliquid laboriosam voluptatem nisi repellat obcaecati, adipisci esse ab delectus dolorum ut recusandae ipsam?</p>
+                <div class="user">
+                    <img src="images/pic-6.png" alt="">
+                    <div class="info">
+                        <h3>john deo</h3>
+                        <span>designer</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- reviews section ends -->
+
+<!-- services section starts  -->
+
+<section class="services" id="services">
+
+    <div class="heading">
+
+        <h3>Մեր ծառայությունները</h3>
+    </div>
+
+    <div class="box-container">
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="150">
+            <i class="fas fa-globe"></i>
+            <h3>worldwide</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, cumque.</p>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="300">
+            <i class="fas fa-hiking"></i>
+            <h3>adventures</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, cumque.</p>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="450">
+            <i class="fas fa-utensils"></i>
+            <h3>food & drinks</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, cumque.</p>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="600">
+            <i class="fas fa-hotel"></i>
+            <h3>affordable hotels</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, cumque.</p>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="750">
+            <i class="fas fa-wallet"></i>
+            <h3>affordable price</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, cumque.</p>
+        </div>
+
+        <div class="box" data-aos="zoom-in-up" data-aos-delay="900">
+            <i class="fas fa-headset"></i>
+            <h3>24/7 support</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, cumque.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- services section ends -->
+
+<!-- next trip  -->
+
+<section class="blogs" id="blogs">
+
+    <h1 class="heading"> Ընտրեք հաջորդ ճանապարհորդության վայրը </h1>
+
+    <div class="swiper blogs-slider">
+
+        <div class="swiper-wrapper">
+            {% for in in vayr %}
+            <div class="swiper-slide slide">
+                <img src="{{ in.img.url }}" alt="">
+                <div class="icons">
+                    <a href="#"> <i class="fas fa-calendar"></i> book now </a>
+                   
+                </div>
+                <h3>{{ in.name }}</h3>
+                <p>{{ in.about }}</p>
+                <a href="#" class="btn">read more</a>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- blogs section ends -->
+
+<!-- newsletter section  -->
+<section id="contact" class="contact">
+
+    <h1 class="heading"> <span> c</span>ontact <span>u</span>s</h1>
+    
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12192.59126886825!2d44.507659936256665!3d40.183523720284704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406abcfaeabab397%3A0x820d1439a31fd75!2sArmenia%20Travel!5e0!3m2!1sru!2s!4v1646044393963!5m2!1sru!2s" 
+width="100%" height="350" style="border:0;" outline:none; allowfullscreen="" loading="lazy"
+
+></iframe>
+
+</section>
+
+<!-- <div class="row">
+    <div class="contact-info">
+        <div class="box">
+            
+        </div>
+    </div>
+</div> -->
+
+<section class="newsletter">
+
+    <div class="content">
+        <h1 class="heading">subscirbe now</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam ipsam repellat nostrum esse officiis unde quisquam corporis doloremque adipisci similique!</p>
+        <form action="">
+            <input type="email" name="" placeholder="enter your email" id="" class="email">
+            <input type="submit" value="subscirbe" class="btn">
+        </form>
+    </div>
+
+
+</section>
+
+
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock %}

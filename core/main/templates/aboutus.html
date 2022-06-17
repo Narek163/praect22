@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<section class="features" id="features">
+      
+
+    <div class="row">
+        <!-- 1 Tab  -->
+       {% for i in kayqaboutus %}
+        <div class="image">
+            <img src="{{ i.img.url }}" alt="illustration-features-tab-1">
+        </div>
+
+
+        <div class="content">
+            <h1>{{ i.name }}</h1>
+            <p>{{ i.about }}</p>
+
+        </div>
+        {% endfor %}
+
+        <!-- 1 Tab  -->
+
+        <!-- 2 Tab  -->
+       
+        
+
+    </div>
+</section>
+
+
+
+<!-- home section ends -->
+
+<!-- features sectin starts  -->
+
+
+  
+
+
+        
+
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/aboutus.js' %}"></script>
+{% endblock %}
